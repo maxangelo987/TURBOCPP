@@ -1,0 +1,185 @@
+#include<conio.h>
+#include<graphics.h>
+#include<stdio.h>
+#include<string.h>
+
+int gd=DETECT, gm;
+int n,x,i,flag;
+char str[100],*ptr[50];
+
+void start();
+void describe();
+void input();
+
+void start()
+{
+setbkcolor(GREEN);
+settextstyle(SANS_SERIF_FONT, HORIZ_DIR,5);
+setcolor(BROWN);
+outtextxy(40,170,"   BNF grammar for the       ");
+outtextxy(40,200,"  BOHOL POSTAL ADDRESS       ");
+setcolor(YELLOW);
+settextstyle(TRIPLEX_FONT, HORIZ_DIR,4);
+outtextxy(70,430,"   Press any key to continue    ");
+}
+
+void describe()
+{
+settextstyle(TRIPLEX_FONT, HORIZ_DIR,3);
+setbkcolor(GREEN);
+setcolor(WHITE);
+outtextxy(15,170,"When sending mail or packages to cities and towns    ");
+outtextxy(15,200,"  in Bohol, Bohol postal addresses or postal codes   ");
+outtextxy(15,230,"   is used. This will make for a faster and more     ");
+outtextxy(15,260," reliable delivery by the delivery service providers.");
+setcolor(YELLOW);
+settextstyle(TRIPLEX_FONT, HORIZ_DIR,4);
+outtextxy(70,430,"   Press any key to continue    ");
+}
+
+void input()
+{
+setbkcolor(GREEN);
+setcolor(WHITE);
+settextstyle(TRIPLEX_FONT, HORIZ_DIR,2);
+outtextxy(160,60,"ENTER BOHOL POSTAL ADDRESS");
+outtextxy(160,80,"EX: 6300 Tagbilaran City   ");
+setcolor(RED);
+gotoxy(10,8);
+printf("<postalcode><space><townaddress>:");
+gotoxy(44,8);
+gets(str);
+x=strlen(str);
+
+if (x==0)
+	{
+	settextstyle(DEFAULT_FONT, HORIZ_DIR,1);
+	gotoxy(44,8);
+	printf("STRING is empty");
+	}
+else
+	{
+ptr[0]="6300 Tagbilaran City";
+ptr[1]="6301 Baclayon";
+ptr[2]="6302 Alburquerque";
+ptr[3]="6303 Loay";
+ptr[4]="6304 Lila";
+ptr[5]="6305 Dimiao";
+ptr[6]="6306 Valencia";
+ptr[7]="6307 Garcia Hernandez";
+ptr[8]="6308 Jagna";
+ptr[9]="6309 Duero";
+ptr[10]="6310 Guindulman";
+ptr[11]="6311 Anda";
+ptr[12]="6312 Candijay";
+ptr[13]="6313 Mabini";
+ptr[14]="6314 Alicia";
+ptr[15]="6315 Ubay";
+ptr[16]="6316 Loboc";
+ptr[17]="6317 Bilar";
+ptr[18]="6318 Batuan";
+ptr[19]="6319 Carmen";
+ptr[20]="6320 Sierra Bullones";
+ptr[21]="6321 Pilar";
+ptr[22]="6322 Dagohoy";
+ptr[23]="6323 San Miquel";
+ptr[24]="6324 Trinidad";
+ptr[25]="6325 Talibon";
+ptr[26]="6326 Bien Unido";
+ptr[27]="6327 Loon";
+ptr[28]="6328 Calape";
+ptr[29]="6329 Tubigon";
+ptr[30]="6330 Clarin";
+ptr[31]="6331 Sagbayan";
+ptr[32]="6332 Inabanga";
+ptr[33]="6333 Buenavista";
+ptr[34]="6334 Jetafe";
+ptr[35]="6335 Antequera";
+ptr[36]="6336 Maribojoc";
+ptr[37]="6337 Corella";
+ptr[38]="6338 Sikatuna";
+ptr[39]="6339 Dauis";
+ptr[40]="6340 Panglao";
+ptr[41]="6341 Cortes";
+ptr[42]="6342 Balilihan";
+ptr[43]="6343 Catigbian";
+ptr[44]="6344 Danao";
+ptr[45]="6345 San Isidro";
+ptr[46]="6346 Pres. Carlos P. Garcia";
+ptr[47]="6347 Sevilla";
+
+flag=0;
+for (i=0;i<49;i++)
+{
+
+if (strcmp(ptr[i],str)==0)
+	{
+	settextstyle(DEFAULT_FONT, HORIZ_DIR,1);
+	gotoxy(10,9);
+	printf("%s - is a valid Bohol Postal Address.",str);
+	setcolor(RED);
+	outtextxy(30,160,"BNF grammar:                                                               ");
+	setcolor(BLUE);
+	outtextxy(30,180,"<postaladdress>::= <zipcode><space><townaddress>                           ");
+	outtextxy(30,200,"<zipcode>::= <number><number><number><number>                              ");
+	outtextxy(30,220,"<townaddress>::= Alburquerque | Alicia | Anda | Antequera | Baclayon |     ");
+	outtextxy(30,240,"                 Balilihan | Batuan | BienUnido | Bilar | Buenavista |     ");
+	outtextxy(30,260,"                 Calape | Candijay | Pres.CarlosP.Garcia(Pitogo) |         ");
+	outtextxy(30,280,"                 Carmen | Catigbian | Clarin | Corella | Cortes |          ");
+	outtextxy(30,300,"                 Dagohoy | Danao | Dauis | Dimiao | Duero |                ");
+	outtextxy(30,320,"                 GarciaHernandez | Guindulman | Inabanga | Jagna | Jetafe |");
+	outtextxy(30,340,"                 Lila | Loay | Loboc | Loon | Mabini | Maribojoc |         ");
+	outtextxy(30,360,"                 Panglao | Pilar | Sagbayan | SanIsidro | SanMiguel |      ");
+	outtextxy(30,380,"                 Sevilla | SierraBullones | Sikatuna | TagbilaranCity |    ");
+	outtextxy(30,400,"                 Talibon | Trinidad | Tubigon | Ubay | Valencia |          ");
+	outtextxy(30,420,"<number>::= <digit>                                                        ");
+	outtextxy(30,440,"<digit>::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9                           ");
+	flag=1;
+	break;
+	}
+
+}
+
+
+if (flag==0)
+	{
+	settextstyle(DEFAULT_FONT, HORIZ_DIR,1);
+	gotoxy(10,9);
+	printf("%s - is not a valid Bohol Postal Address.",str);
+	}
+
+	}
+}
+
+
+void main()
+{
+
+initgraph(&gd,&gm,"C:\\turboc3\\bgi");
+start();
+getch();
+
+
+initgraph(&gd,&gm,"C:\\turboc3\\bgi");
+describe();
+getch();
+
+initgraph(&gd,&gm,"C:\\turboc3\\bgi");
+input();
+getch();
+
+initgraph(&gd,&gm,"C:\\turboc3\\bgi");
+setbkcolor(GREEN);
+settextstyle(TRIPLEX_FONT, HORIZ_DIR,2);
+setcolor(WHITE);
+outtextxy(62,100,"CpE 412 - Structures of Programming Languages       ");
+outtextxy(62,140,"                  PROJECT NO. 2                     ");
+outtextxy(62,170,"             BNF (Backus Nour Form)                 ");
+outtextxy(70,320," Perin, Max Angelo                                  ");
+outtextxy(70,340,"      BSCpE 4                                       ");
+outtextxy(70,360,"                              Engr. Edgar Uy II     ");
+outtextxy(70,380,"                                  Instructor        ");
+
+
+getch();
+}
